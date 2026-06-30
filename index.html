@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile — BIT3208 Week 8</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">MyProfile</div>
+        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="profile-image">
+                <img src="images/profile.jpg" alt="My Profile Picture">
+            </div>
+            <div class="hero-text">
+                <h1>Hello, I'm <span class="highlight">AbdulMalik</span></h1>
+                <p class="tagline">Web Developer & Designer</p>
+                <p class="description">Passionate about creating responsive, user-friendly web experiences.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who I Am</h3>
+                    <p>I am a dedicated student pursuing a degree in Information Technology. My journey in web development started with a curiosity about how websites work, and it has grown into a passion for creating beautiful, functional digital experiences.</p>
+                    <p>I specialize in HTML, CSS, JavaScript, and PHP. I believe in writing clean, maintainable code and designing with the user in mind.</p>
+                    
+                    <h3>Education</h3>
+                    <ul class="education-list">
+                        <li>📚 Bachelor of Information Technology — Current</li>
+                        <li>💻 Advanced Web Design & Development (BIT3208)</li>
+                        <li>🎓 Diploma in Computer Science — 2022</li>
+                    </ul>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>HTML5</h3>
+                    <p>Semantic markup, accessibility, SEO-friendly structure</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;">90%</div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>CSS3</h3>
+                    <p>Flexbox, Grid, animations, responsive design</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;">85%</div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <p>DOM manipulation, events, ES6+ features</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%;">75%</div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐘</div>
+                    <h3>PHP</h3>
+                    <p>Server-side scripting, MySQL integration, sessions</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%;">80%</div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>MySQL</h3>
+                    <p>Database design, queries, CRUD operations</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%;">70%</div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-first, media queries, flexible layouts</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%;">88%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p>your.email@student.ac.ke</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+254 7XX XXX XXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-btn">GitHub</a>
+                        <a href="#" class="social-btn">LinkedIn</a>
+                        <a href="#" class="social-btn">Twitter</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 [Your Name]. All rights reserved. | BIT3208 Week 8</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Built with ❤️ using Mobile-First Responsive Design</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Coffee Co. - Product Showcase</title>
+    <style>
+        /* ======================== */
+        /* CSS RESET & BASE STYLES  */
+        /* ======================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6B4226;
+            --primary-light: #8B5E3C;
+            --secondary: #D4A574;
+            --accent: #C75B39;
+            --bg: #FAF7F2;
+            --card-bg: #FFFFFF;
+            --text: #2C1810;
+            --text-light: #6B5B4F;
+            --shadow: 0 2px 8px rgba(44, 24, 16, 0.08);
+            --shadow-hover: 0 8px 24px rgba(44, 24, 16, 0.15);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ======================== */
+        /* HEADER                   */
+        /* ======================== */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* ======================== */
+        /* MOBILE-FIRST: BASE GRID  */
+        /* 1 column by default      */
+        /* ======================== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .product-grid {
+            display: grid;
+            /* Mobile: 1 column */
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        /* ======================== */
+        /* PRODUCT CARD             */
+        /* ======================== */
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; /* 4:3 aspect ratio */
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0e6d9 0%, #e8ddd0 100%);
+        }
+
+        .product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #f0e6d9;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .product-price span {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .add-to-cart {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .add-to-cart:hover {
+            background: var(--primary-light);
+            transform: scale(1.05);
+        }
+
+        .add-to-cart:active {
+            transform: scale(0.95);
+        }
+
+        /* ======================== */
+        /* TABLET BREAKPOINT        */
+        /* 2 columns                */
+        /* ======================== */
+        @media screen and (min-width: 640px) {
+            header {
+                padding: 4rem 2rem;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.125rem;
+            }
+
+            .container {
+                padding: 3rem 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .product-grid {
+                /* Tablet: 2 columns */
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .product-name {
+                font-size: 1.375rem;
+            }
+
+            .product-description {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ======================== */
+        /* DESKTOP BREAKPOINT       */
+        /* 4 columns                */
+        /* ======================== */
+        @media screen and (min-width: 1024px) {
+            header {
+                padding: 5rem 2rem;
+            }
+
+            header h1 {
+                font-size: 3rem;
+            }
+
+            .container {
+                padding: 4rem 2rem;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+                margin-bottom: 3rem;
+            }
+
+            .product-grid {
+                /* Desktop: 4 columns */
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2.5rem;
+            }
+
+            .product-content {
+                padding: 1.75rem;
+            }
+
+            .product-price {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* ======================== */
+        /* FOOTER                   */
+        /* ======================== */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.875rem;
+        }
+
+        /* ======================== */
+        /* ACCESSIBILITY            */
+        /* ======================== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* Focus styles */
+        .add-to-cart:focus-visible {
+            outline: 3px solid var(--secondary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>☕ Artisan Coffee Co.</h1>
+        <p>Premium single-origin coffees, freshly roasted and delivered to your door. Experience the world's finest beans.</p>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Our Signature Collection</h2>
+        
+        <div class="product-grid">
+
+            <!-- Product 1 -->
+            <article class="product-card">
+                <div class="product-image-wrapper">
+                    <img 
+                        src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&h=450&fit=crop" 
+                        alt="Ethiopian Yirgacheffe coffee beans in a ceramic bowl with warm lighting"
+                        class="product-image"
+                        loading="lazy"
+                    >
+                    <span class="product-badge">Best Seller</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-name">Ethiopian Yirgacheffe</h3>
+                    <p class="product-description">
+                        Bright, floral notes with hints of jasmine and bergamot. This light roast showcases the legendary complexity of heirloom varietals from the birthplace of coffee.
+                    </p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            $18.99 <span>/ 12oz</span>
+                        </div>
+                        <button class="add-to-cart" aria-label="Add Ethiopian Yirgacheffe to cart">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="product-card">
+                <div class="product-image-wrapper">
+                    <img 
+                        src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=600&h=450&fit=crop" 
+                        alt="Colombian Supremo dark roasted coffee beans scattered on wooden surface"
+                        class="product-image"
+                        loading="lazy"
+                    >
+                    <span class="product-badge">New</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-name">Colombian Supremo</h3>
+                    <p class="product-description">
+                        Rich, full-bodied with caramel sweetness and a smooth chocolate finish. Sourced from the high-altitude farms of the Andes mountains for exceptional depth.
+                    </p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            $16.99 <span>/ 12oz</span>
+                        </div>
+                        <button class="add-to-cart" aria-label="Add Colombian Supremo to cart">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="product-card">
+                <div class="product-image-wrapper">
+                    <img 
+                        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=450&fit=crop" 
+                        alt="Sumatra Mandheling coffee with rustic wooden scoop and dark roast beans"
+                        class="product-image"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="product-content">
+                    <h3 class="product-name">Sumatra Mandheling</h3>
+                    <p class="product-description">
+                        Earthy, spicy, and intensely aromatic with low acidity. This dark roast features bold tobacco and cedar notes with a syrupy, lingering finish.
+                    </p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            $19.49 <span>/ 12oz</span>
+                        </div>
+                        <button class="add-to-cart" aria-label="Add Sumatra Mandheling to cart">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 4 -->
+            <article class="product-card">
+                <div class="product-image-wrapper">
+                    <img 
+                        src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&h=450&fit=crop" 
+                        alt="Costa Rican Tarrazu light roast coffee beans in burlap sack with green leaves"
+                        class="product-image"
+                        loading="lazy"
+                    >
+                    <span class="product-badge">Limited</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-name">Costa Rican Tarrazú</h3>
+                    <p class="product-description">
+                        Crisp, clean, and vibrant with honey sweetness and bright citrus acidity. Grown in volcanic soil at 1,500m elevation for a truly exceptional cup.
+                    </p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            $21.99 <span>/ 12oz</span>
+                        </div>
+                        <button class="add-to-cart" aria-label="Add Costa Rican Tarrazu to cart">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Artisan Coffee Co. All rights reserved. Freshly roasted with passion.</p>
+    </footer>
+
+</body>
+</html>
